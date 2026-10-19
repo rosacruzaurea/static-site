@@ -27,8 +27,10 @@ Evidência estruturada: [services-update-verification.json](services-update-veri
 
 ## Revisão e publicação
 
-Branch `feat/servicos-ago-out-2026`, baseada no candidato `e77a382101beda3008f4622cfb22e4721382abd7` da biblioteca. O PR #2 ainda estava aberto no início desta mudança; o novo PR contra main inclui essa dependência enquanto a biblioteca não for integrada. Não foi feito merge para criar a base.
+Por solicitação da equipe, a biblioteca e esta atualização ficam reunidas no [PR #2](https://github.com/rosacruzaurea/static-site/pull/2), branch `feat/biblioteca-servicos`, contra main. A preparação começou em `feat/servicos-ago-out-2026`, a partir do candidato `e77a382101beda3008f4622cfb22e4721382abd7`; o PR #3 foi substituído pelo PR #2. Nenhum merge na main foi feito.
 
-O preview compartilhado deve representar este candidato após o deploy, em https://rosacruzaurea.github.io/static-site/biblioteca-de-servicos-e-conferencias/. O resultado efetivo da publicação e o commit servido são registrados no PR e no estado canônico do projeto. Resultados offline acima não são prova do deploy.
+Preview publicado: https://rosacruzaurea.github.io/static-site/biblioteca-de-servicos-e-conferencias/. O deploy `39293221717` concluiu com sucesso no commit `23a58189748f87ca870e02ec11996c2d0f506d96` de `preview-pages`, com artefato do candidato `2445f3f0570a6418b75f9912ec55c6ff1c7f1a00`. A consolidação do PR só altera a documentação e a referência de revisão, sem mudar os arquivos publicados.
+
+Na verificação pública, página, quatro CSS/JS e home responderam HTTP 200 com bytes iguais ao candidato. No Chrome da URL real, os 13 destinos estão presentes; filtros de 2026 e buscas por agosto/setembro exibem as contagens esperadas. Agosto também foi conferido em 390 px, com oito entradas e sem overflow. As capturas desktop/mobile carregaram no PR. Não houve reprodução integral dos vídeos.
 
 Página continua acessível apenas por URL direta, sem entrada no menu/home/rodapé. Sem merge automático, mudança de origem do Pages ou deploy na hospedagem institucional.
