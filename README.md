@@ -1,5 +1,9 @@
 # Rosacruz Áurea · site estático
 
+## Atualização: biblioteca de serviços
+
+Adicionada a [Biblioteca de Serviços e Conferências](docs/BIBLIOTECA-SERVICOS.md), por URL direta e sem link na navegação principal. São 73 páginas nesta revisão. Os relatos de escopo e envio inicial abaixo são históricos; limites e evidências da nova página constam no documento vinculado.
+
 Versão de revisão do site institucional em **HTML, CSS e JavaScript puros**. Sem WordPress, framework, banco, pacote de execução ou serviço de terceiros carregado automaticamente.
 
 ## Abrir a versão
