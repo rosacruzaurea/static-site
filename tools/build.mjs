@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {servicesPage} from './services-page.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'site');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'content/site.json'), 'utf8'));
+const services = JSON.parse(fs.readFileSync(path.join(root, 'content/services.json'), 'utf8'));
 const e = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const states = {'amazonas':'Amazonas','bahia':'Bahia','ceara':'Ceará','distrito-federal':'Distrito Federal','espirito-santo':'Espírito Santo','goias':'Goiás','mato-grosso':'Mato Grosso','minas-gerais':'Minas Gerais','para':'Pará','parana':'Paraná','rio-de-janeiro':'Rio de Janeiro','rio-grande-do-norte':'Rio Grande do Norte','rio-grande-do-sul':'Rio Grande do Sul','santa-catarina':'Santa Catarina','sao-paulo':'São Paulo'};
 const routes = new Set(['/', '/sobre/', '/enderecos/', '/localizador-enderecos/', '/biblioteca-de-palestras/', '/carta-aberta-aos-buscadores-da-verdade/', '/politica-de-privacidade/', '/palestras-ao-vivo/', '/autoconhecimento-e-espiritualidade/', ...data.articles.map(a => a.path), ...data.locations.map(a => a.path)]);
@@ -29,8 +31,8 @@ function nav(from) {
 }
 function newsletter(from) { return `<section class="newsletter"><div class="wrap"><h2>Continue sua jornada</h2><p>Receba acesso gratuito ao minicurso, palestras e uma biblioteca de livros, vídeos, textos e áudios.</p>${button(from,data.signupUrl,'Acessar o canal oficial ↗')}<small>O cadastro é realizado no site oficial da Rosacruz Áurea.</small></div></section>`; }
 function footer(from) { return `<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><p class="footer-brand">Rosacruz Áurea</p><p>Uma Escola iniciática contemporânea, dedicada à transformação da consciência e da vida do ser humano atual.</p></div><div><h2>Conheça a Escola</h2><ul><li><a href="${relative(from,'/sobre/')}">Sobre a Rosacruz Áurea</a></li><li><a href="${relative(from,'/enderecos/')}">Encontre uma unidade</a></li><li><a href="${relative(from,'/carta-aberta-aos-buscadores-da-verdade/')}">Carta Aberta</a></li><li><a href="${relative(from,'/politica-de-privacidade/')}">Privacidade</a></li></ul></div><div><h2>Acompanhe</h2><ul>${data.social.map(s=>`<li><a href="${e(s.url)}">${e(s.name)} ↗</a></li>`).join('')}</ul></div></div><div class="footer-bottom"><span>Lectorium Rosicrucianum · Rosacruz Áurea</span><span>Conteúdo público consultado em 19/10/2026</span></div></div></footer>`; }
-function page(route, title, description, content, withNewsletter=true) {
-  const html=`<!doctype html>\n<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><title>${e(title)} | Rosacruz Áurea</title><meta name="description" content="${e(description)}"><link rel="icon" href="${asset(route,'logo.png')}" type="image/png"><link rel="stylesheet" href="${asset(route,'styles.css')}"><script src="${asset(route,'app.js')}" defer></script></head><body>${nav(route)}<main id="conteudo" tabindex="-1">${content}</main>${withNewsletter?newsletter(route):''}${footer(route)}</body></html>\n`;
+function page(route, title, description, content, withNewsletter=true, extras={}) {
+  const html=`<!doctype html>\n<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><title>${e(title)} | Rosacruz Áurea</title><meta name="description" content="${e(description)}"><link rel="icon" href="${asset(route,'logo.png')}" type="image/png"><link rel="stylesheet" href="${asset(route,'styles.css')}"><script src="${asset(route,'app.js')}" defer></script>${(extras.styles||[]).map(name=>`<link rel="stylesheet" href="${asset(route,name)}">`).join('')}${(extras.scripts||[]).map(name=>`<script src="${asset(route,name)}" defer></script>`).join('')}</head><body>${nav(route)}<main id="conteudo" tabindex="-1">${content}</main>${withNewsletter?newsletter(route):''}${footer(route)}</body></html>\n`;
   const filename=path.join(output,route.replace(/^\//,''),'index.html');
   fs.mkdirSync(path.dirname(filename),{recursive:true});fs.writeFileSync(filename,html);
   routeFiles.push({path:route,title,file:path.relative(output,filename)});
@@ -68,6 +70,11 @@ function filterForm(target, noun, label, options) {
 function categoryLabel(key) { return {'autoconhecimento':'Autoconhecimento','consciencia':'Consciência','espiritualidade':'Espiritualidade','esoterismo':'Esoterismo','harmonia':'Harmonia','vida':'Vida'}[key] || key; }
 {
  const r='/biblioteca-de-palestras/';page(r,'Biblioteca de Palestras','Explore palestras e textos sobre autoconhecimento, consciência e espiritualidade.',heading(r,'Biblioteca de Palestras','Um acervo para aprofundar sua pesquisa e encontrar novas perspectivas sobre a vida.')+`<section class="section"><div class="wrap">${filterForm('biblioteca','palestras','Tema',categories.map(c=>[c,categoryLabel(c)]))}<p class="results-count" data-results-count aria-live="polite">${data.articles.length} palestras</p><div class="cards" id="biblioteca">${data.articles.map(a=>articleCard(r,a,true)).join('')}<div class="empty-state" data-empty hidden><h2>Nenhuma palestra encontrada</h2><p>Experimente outra palavra ou limpe os filtros.</p></div></div></div></section>`);
+}
+// Direct-URL collection: intentionally absent from shared navigation and landing pages.
+{
+ const r='/biblioteca-de-servicos-e-conferencias/';
+ page(r,'Biblioteca de Serviços e Conferências','Consulte serviços templários e conferências da Rosacruz Áurea, organizados por ciclos.',heading(r,'Biblioteca de Serviços e Conferências','Um acervo de serviços templários e conferências para acompanhar e aprofundar seu caminho.')+servicesPage(services),false,{styles:['services.css'],scripts:['services.js']});
 }
 for (const a of data.articles) {
  const r=a.path;const video=a.videos[0];

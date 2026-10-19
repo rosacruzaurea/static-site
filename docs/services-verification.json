@@ -1,0 +1,190 @@
+{
+  "environment": "Installed Chrome, isolated offline fixture under /static-site/",
+  "checks": 45,
+  "passed": 45,
+  "results": [
+    {
+      "description": "1365px: one heading",
+      "passed": true
+    },
+    {
+      "description": "1365px: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "1365px: filters enhanced",
+      "passed": true
+    },
+    {
+      "description": "390px: one heading",
+      "passed": true
+    },
+    {
+      "description": "390px: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "390px: filters enhanced",
+      "passed": true
+    },
+    {
+      "description": "320px: one heading",
+      "passed": true
+    },
+    {
+      "description": "320px: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "320px: filters enhanced",
+      "passed": true
+    },
+    {
+      "description": "All source collections retained",
+      "passed": true
+    },
+    {
+      "description": "All source entries retained",
+      "passed": true
+    },
+    {
+      "description": "First collection opens initially",
+      "passed": true
+    },
+    {
+      "description": "Native summary collapses by keyboard",
+      "passed": true
+    },
+    {
+      "description": "Native summary opens by keyboard",
+      "passed": true
+    },
+    {
+      "description": "Expand exposes every entry",
+      "passed": true
+    },
+    {
+      "description": "Collapse closes all collections",
+      "passed": true
+    },
+    {
+      "description": "Year filter exposes matching entries in open collections",
+      "passed": true
+    },
+    {
+      "description": "Combined filters ignore case and accents",
+      "passed": true
+    },
+    {
+      "description": "URL preserves both filters on reload",
+      "passed": true
+    },
+    {
+      "description": "Reload preserves actual result set",
+      "passed": true
+    },
+    {
+      "description": "Empty state appears",
+      "passed": true
+    },
+    {
+      "description": "Empty state hides all cycles",
+      "passed": true
+    },
+    {
+      "description": "Empty state disables expansion",
+      "passed": true
+    },
+    {
+      "description": "Search text never becomes executable markup",
+      "passed": true
+    },
+    {
+      "description": "Clear resets both inputs",
+      "passed": true
+    },
+    {
+      "description": "Clear removes filter query parameters",
+      "passed": true
+    },
+    {
+      "description": "Clear restores every collection",
+      "passed": true
+    },
+    {
+      "description": "Clear returns focus to search",
+      "passed": true
+    },
+    {
+      "description": "Collection month is searchable without accent",
+      "passed": true
+    },
+    {
+      "description": "Invalid year falls back to all collections",
+      "passed": true
+    },
+    {
+      "description": "Every video destination and timestamp preserved in source order",
+      "passed": true
+    },
+    {
+      "description": "External tabs isolate opener/referrer",
+      "passed": true
+    },
+    {
+      "description": "No automatic embedded video",
+      "passed": true
+    },
+    {
+      "description": "Review indexing policy preserved",
+      "passed": true
+    },
+    {
+      "description": "Mobile menu works on direct page",
+      "passed": true
+    },
+    {
+      "description": "Mobile menu closes with Escape",
+      "passed": true
+    },
+    {
+      "description": "Hidden page is absent from shared navigation/footer",
+      "passed": true
+    },
+    {
+      "description": "Home has no link to services archive",
+      "passed": true
+    },
+    {
+      "description": "Existing public library link is unchanged",
+      "passed": true
+    },
+    {
+      "description": "No JavaScript: complete archive remains in HTML",
+      "passed": true
+    },
+    {
+      "description": "No JavaScript: inactive filters remain hidden",
+      "passed": true
+    },
+    {
+      "description": "No JavaScript: oldest collection opens natively",
+      "passed": true
+    },
+    {
+      "description": "No JavaScript: navigation stays usable",
+      "passed": true
+    },
+    {
+      "description": "No third-party automatic requests",
+      "passed": true
+    },
+    {
+      "description": "No browser/console errors",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "thirdParty": [],
+  "errors": []
+}
