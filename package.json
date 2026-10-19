@@ -1,0 +1,12 @@
+{
+  "name": "rosacruz-aurea-static-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Site institucional em HTML, CSS e JavaScript, sem dependências de execução.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "node tools/check.mjs",
+    "serve": "node tools/serve.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
