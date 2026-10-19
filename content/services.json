@@ -4,6 +4,92 @@
   "sourceSha256": "164fe3a559be9fef3225d4d1f7059907fd50bf584f42d691ccf4fbed470efc23",
   "collections": [
     {
+      "id": "ciclo-2026-10",
+      "title": "Outubro de 2026",
+      "year": "2026",
+      "entries": [
+        {
+          "title": "Serviço Templário Online para toda a Comunidade - 04/10/2026 - 10h00",
+          "url": "https://youtube.com/live/MTxELeMdUn4",
+          "duration": ""
+        }
+      ]
+    },
+    {
+      "id": "ciclo-2026-09",
+      "title": "Setembro de 2026",
+      "year": "2026",
+      "entries": [
+        {
+          "title": "Serviço Templário Online para toda a Comunidade - 20/09/2026 - 10h00",
+          "url": "https://youtube.com/live/TCqxnxWZXH8",
+          "duration": ""
+        },
+        {
+          "title": "1º Serviço da Conferência para toda a Comunidade - Setembro de 2026",
+          "url": "https://youtu.be/o0zxp8p2t4o",
+          "duration": ""
+        },
+        {
+          "title": "2º Serviço da Conferência para toda a Comunidade - Setembro de 2026",
+          "url": "https://youtu.be/jeXZozgUII0",
+          "duration": ""
+        },
+        {
+          "title": "3º Serviço da Conferência para toda a Comunidade - Setembro de 2026",
+          "url": "https://youtu.be/nFeT54enwQg",
+          "duration": ""
+        }
+      ]
+    },
+    {
+      "id": "ciclo-2026-08",
+      "title": "Agosto de 2026",
+      "year": "2026",
+      "entries": [
+        {
+          "title": "Serviço Templário Online para toda a Comunidade - 16/08/2026 - 10h00",
+          "url": "https://www.youtube.com/live/1NcBjzpGIFk",
+          "duration": ""
+        },
+        {
+          "title": "1º Serviço da Conferência Especial de Salvador - 22/08/2026 - 15h",
+          "url": "https://www.youtube.com/live/jr1126ISRWw?is=SmGidAv90aPeNh1d",
+          "duration": ""
+        },
+        {
+          "title": "2º Serviço da Conferência Especial de Salvador - 22/08/2026 - 18h",
+          "url": "https://www.youtube.com/live/0u87wvV_g7s?is=L3IXg_J7OHD0R4X5",
+          "duration": ""
+        },
+        {
+          "title": "3º Serviço da Conferência Especial de Salvador: Dia da Fraternidade - 23/08/2026 - 10h",
+          "url": "https://www.youtube.com/live/s-HY0EOkszI?is=1l1KevWgWDjo6kG",
+          "duration": ""
+        },
+        {
+          "title": "1º Serviço da Conferência para toda a Comunidade - Agosto de 2026",
+          "url": "https://youtu.be/frjEaAtmgIE",
+          "duration": ""
+        },
+        {
+          "title": "2º Serviço da Conferência para toda a Comunidade - Agosto de 2026",
+          "url": "https://youtu.be/LRkcT1oG_II",
+          "duration": ""
+        },
+        {
+          "title": "3º Serviço da Conferência para toda a Comunidade - Agosto de 2026",
+          "url": "https://youtu.be/N2Qu9hmwHmM",
+          "duration": ""
+        },
+        {
+          "title": "Serviço de Introspecção da Conferência para toda a Comunidade - Agosto de 2026",
+          "url": "https://youtu.be/tXjqYQ7gQpU",
+          "duration": ""
+        }
+      ]
+    },
+    {
       "id": "ciclo-8e5816c",
       "title": "Junho de 2026",
       "year": "2026",
@@ -1594,5 +1680,14 @@
         }
       ]
     }
-  ]
+  ],
+  "editorialUpdate": {
+    "date": "2026-10-19",
+    "source": "Links fornecidos pela equipe",
+    "collectionIds": [
+      "ciclo-2026-10",
+      "ciclo-2026-09",
+      "ciclo-2026-08"
+    ]
+  }
 }

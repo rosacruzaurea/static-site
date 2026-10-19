@@ -1,5 +1,9 @@
 # Biblioteca de Serviços e Conferências
 
+## Atualização do acervo em 19/10/2026
+
+Acrescentados 13 links enviados pela equipe: agosto/2026 (8), setembro/2026 (4) e outubro/2026 (1). Total atual: 56 coleções e 257 registros. Ver [atualização e evidências](ATUALIZACAO-SERVICOS-2026.md). Os números e a fonte de importação das seções abaixo descrevem a entrega original, preservada como histórico.
+
 ## Escopo desta mudança
 
 Página solicitada para acesso por URL direta, sem entrada no menu, home, rodapé ou biblioteca de palestras. PR contra `main`; publicação somente em `preview-pages`. Sem merge automático e sem deploy na hospedagem institucional.

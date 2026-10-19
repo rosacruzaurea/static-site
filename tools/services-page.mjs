@@ -6,6 +6,7 @@ export function servicesPage(data) {
   const total = collections.reduce((sum, cycle) => sum + cycle.entries.length, 0);
   const years = [...new Set(collections.map(cycle => cycle.year))].sort().reverse();
   const sourceDate = new Intl.DateTimeFormat('pt-BR', {timeZone:'UTC'}).format(new Date(data.retrievedAt));
+  const editorialDate = data.editorialUpdate ? new Intl.DateTimeFormat('pt-BR', {timeZone:'UTC'}).format(new Date(data.editorialUpdate.date)) : null;
   const cycles = collections.map((cycle, index) => {
     const entries = cycle.entries.map((entry, i) => {
       const url = new URL(entry.url);
@@ -22,6 +23,6 @@ export function servicesPage(data) {
     <div class="services-toolbar"><p class="results-count" data-services-count role="status" aria-live="polite">${total} registros em ${collections.length} coleções</p><button class="services-expand" type="button" data-services-expand hidden>Expandir coleções</button></div>
     <div class="service-cycles">${cycles}</div>
     <div class="empty-state" data-services-empty hidden><h2>Nenhum registro encontrado</h2><p>Experimente outro termo ou selecione todos os anos.</p></div>
-    <p class="source-note">Acervo consultado em ${escape(sourceDate)}. Títulos, períodos e durações seguem a <a href="${escape(data.sourceUrl)}">biblioteca original ↗</a>. A disponibilidade das gravações depende do YouTube.</p>
+    <p class="source-note">Acervo inicial consultado em ${escape(sourceDate)} na <a href="${escape(data.sourceUrl)}">biblioteca original ↗</a>.${editorialDate ? ` Atualizado com links fornecidos pela equipe em ${escape(editorialDate)}.` : ''} A disponibilidade das gravações depende do YouTube.</p>
   </div></section>`;
 }
