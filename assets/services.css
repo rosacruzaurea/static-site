@@ -1,0 +1,52 @@
+.service-archive { padding-top: 36px; }
+.services-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; margin-bottom: 26px; }
+.services-intro p { max-width: 660px; color: var(--muted); font-size: 16px; margin: 0; }
+.services-label { color: var(--olive); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.services-filters { margin-bottom: 24px; }
+.services-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.services-toolbar .results-count { margin: 0; }
+.services-expand { min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: var(--olive); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.services-expand:disabled { opacity: .55; cursor: default; }
+.service-cycles { display: grid; gap: 12px; }
+.service-cycle { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+.service-cycle[open] { border-color: #b8b89d; }
+.service-cycle summary { display: flex; align-items: center; gap: 20px; padding: 23px 26px; cursor: pointer; list-style: none; min-height: 80px; }
+.service-cycle summary::-webkit-details-marker { display: none; }
+.service-cycle summary:hover { background: var(--soft); }
+.service-cycle summary:focus-visible { outline-offset: -4px; }
+.service-cycle summary::after { content: '+'; flex: 0 0 24px; font-size: 25px; line-height: 1; font-weight: 400; text-align: center; color: var(--olive); }
+.service-cycle[open] > summary::after { content: '−'; }
+.service-cycle summary h2 { margin: 0; font-size: 22px; flex: 1; }
+.service-cycle-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.service-records { list-style: none; margin: 0; padding: 0 26px 12px; }
+.service-record { display: grid; grid-template-columns: 32px minmax(0,1fr) 165px; align-items: center; gap: 20px; padding: 23px 8px; border-top: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.service-record:hover { background: var(--soft); color: var(--ink); }
+.service-record:hover .service-title { text-decoration: underline; text-underline-offset: 4px; }
+.service-number { align-self: start; font-size: 13px; color: var(--olive); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.service-title { font-size: 16px; line-height: 1.55; overflow-wrap: anywhere; }
+.service-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.service-duration { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.service-watch { color: var(--olive); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.service-archive .source-note { margin-top: 36px; }
+@media (max-width: 700px) {
+  .services-intro { display: block; }
+  .services-label { display: none; }
+  .service-cycle summary { padding: 20px 16px; gap: 12px; min-height: 76px; }
+  .service-cycle summary h2 { font-size: 20px; }
+  .service-records { padding-inline: 12px; }
+  .service-record { grid-template-columns: 24px minmax(0,1fr); gap: 8px 12px; padding: 20px 4px; }
+  .service-meta { grid-column: 2; flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .service-title { font-size: 15px; }
+  .services-toolbar { gap: 12px; align-items: baseline; }
+  .services-toolbar .results-count { max-width: 170px; }
+  .services-expand { font-size: 13px; text-align: right; }
+}
+@media (max-width: 370px) {
+  .service-cycle summary { flex-wrap: wrap; gap: 6px; }
+  .service-cycle summary h2 { flex-basis: calc(100% - 30px); }
+  .service-cycle-count { order: 1; flex-basis: 100%; }
+}
+@media print {
+  .services-toolbar button { display: none; }
+  .service-cycle { break-inside: avoid; }
+}
